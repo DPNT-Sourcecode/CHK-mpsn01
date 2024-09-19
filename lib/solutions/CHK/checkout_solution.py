@@ -41,8 +41,11 @@ class Item:
         self.price = price
         
     def add_one(self):
-        pass
+        self.count += 1
+
     def remove_one(self):
-        pass
+        if self.count > 0: 
+            self.count -= 1
+        
     def total(self) -> int:
         pass

@@ -65,8 +65,23 @@ class TestItemClass():
         assert item.price == 15
         
     def test_add_one(self):
-        pass
+        item = checkout_solution.Item('A', 50)
+        item.add_one()
+        assert item.count == 1
+
     def test_remove_one(self):
-        pass
+        # Test case 1 - An item was removed
+        item = checkout_solution.Item('A', 50)
+        item.add_one()
+        item.remove_one()
+        assert item.count == 0
+        
+        # Test case 2 - too many items removed
+        item = checkout_solution.Item('A', 50)
+        item.add_one()
+        item.remove_one()
+        item.remove_one()
+        assert item.count == 0
+        
     def test_total(self):
         pass
