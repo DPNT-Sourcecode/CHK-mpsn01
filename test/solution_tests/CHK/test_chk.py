@@ -31,7 +31,6 @@ class TestCheckoutClass():
     def test_init(self):
         skus = "AAA"
         items = {'A':50, 'B':30, 'C':20, 'D':15}
-        
         checkout = checkout_solution.Checkout(skus)
         
         assert items == checkout.items
@@ -45,11 +44,27 @@ class TestCheckoutClass():
     
 class TestItemClass():
     def test_init(self):
-        pass
+        item = checkout_solution.Item('A')
+        assert item.count == 0
+        assert item.price == 50
+        
+        item = checkout_solution.Item('B')
+        assert item.count == 0
+        assert item.price == 30
+        
+        item = checkout_solution.Item('C')
+        assert item.count == 0
+        assert item.price == 30
+        
+        item = checkout_solution.Item('C')
+        assert item.count == 0
+        assert item.price == 15
+        
     def test_add_one(self):
         pass
     def test_remove_one(self):
         pass
     def test_total(self):
         pass
+
 
