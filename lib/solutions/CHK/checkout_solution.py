@@ -3,33 +3,31 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus) -> int:
-    result = 0
-    valid = ['A', 'B', 'C', 'D']
-    
     # check for no items added
     if skus == "":
         return 0
     
-    # TODO: Initialise a class to represent the checkout
-    checkout = Checkout()
-    
     # loop through SKUS, return -1 if any characters not valid
+    valid = ['A', 'B', 'C', 'D']
     for char in skus:
         # check char is valid
         if char not in valid:
-            return -1 
+            return -1
+        
+    # Initialise a class to represent the checkout
+    checkout = Checkout() 
     
-    return result
+    return checkout.total()
 
 # Class is used to represent the checkout
 class Checkout:
-    def __init__(self):
+    def __init__(self, skus: str):
         pass
     def add_item(self):
         pass
     def remove_item(self):
         pass
-    def total(self):
+    def total(self) -> int:
         pass
 
 # Class is used to represent an item, how much it costs
@@ -43,3 +41,4 @@ class Item:
         pass
     def total(self):
         pass
+
