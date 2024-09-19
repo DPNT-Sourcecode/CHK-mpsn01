@@ -48,8 +48,8 @@ class Checkout:
         if self.receipt[name].count == 0:
             del self.receipt[name] # Remove if count reaches
             
-            
     def total(self) -> int:
+        # TODO: Add comparison for cross-item discounts
         sum = 0
         for item in self.receipt.values():
             sum = sum + item.total()
@@ -85,4 +85,5 @@ class Item:
             return (num_pairs * 45) + (remainder * self.price)
         
         return self.count*self.price
+
 
