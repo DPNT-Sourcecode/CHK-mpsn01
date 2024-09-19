@@ -29,14 +29,16 @@ class TestRunCheckout():
         
 class TestCheckoutClass():
     def test_init(self):
-        skus = "AAA"
-        checkout = checkout_solution.Checkout(skus)
+        checkout = checkout_solution.Checkout()
         
         assert checkout.receipt == {}
         assert checkout.items == {'A':50, 'B':30, 'C':20, 'D':15}
         
     def test_add_item(self):
-        pass
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('A')
+        assert 'A' in checkout.receipt
+
     def test_remove_item(self):
         pass
     def test_total(self):

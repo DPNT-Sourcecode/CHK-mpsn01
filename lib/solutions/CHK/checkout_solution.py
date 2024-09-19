@@ -15,19 +15,19 @@ def checkout(skus) -> int:
             return -1
         
     # Initialise a class to represent the checkout
-    checkout = Checkout(skus) 
+    checkout = Checkout() 
     
     return checkout.total()
 
 # Class is used to represent the checkout
 class Checkout:
-    def __init__(self, skus: str):
+    def __init__(self):
         self.items = {'A':50, 'B':30, 'C':20, 'D':15}
         self.receipt = {}
         
-    def add_item(self):
+    def add_item(self, name: str):
         pass
-    def remove_item(self):
+    def remove_item(self, name: str):
         pass
     def total(self) -> int:
         pass
