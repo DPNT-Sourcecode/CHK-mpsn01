@@ -22,10 +22,7 @@ def checkout(skus) -> int:
 # Class is used to represent the checkout
 class Checkout:
     def __init__(self, skus: str):
-        # define the available items and their prices
         self.items = {'A':50, 'B':30, 'C':20, 'D':15}
-        
-        # receipt stores a dict of item objects
         self.receipt = {}
         
     def add_item(self):
@@ -38,7 +35,8 @@ class Checkout:
 # Class is used to represent an item, how much it costs
 # and how many have been selected
 class Item:
-    def __init__(self, price: int):
+    def __init__(self, name: str, price: int):
+        self.name = name
         self.count = 0
         self.price = price
         
