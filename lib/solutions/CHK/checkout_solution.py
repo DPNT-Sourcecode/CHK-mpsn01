@@ -17,5 +17,3 @@ def checkout(skus) -> int:
             return -1 
     
     return result
-
-
