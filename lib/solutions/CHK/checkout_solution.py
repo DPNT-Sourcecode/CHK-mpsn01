@@ -50,13 +50,14 @@ class Item:
     def total(self) -> int:
         # Check for discount needed to item A - 3A for 130 
         if self.name == 'A':
-            num_triplets = self.count / 3
+            num_triplets = self.count // 3
             remainder = self.count % 3
-            return (num_triplets * 130) + (remainder * 50)
+            return (num_triplets * 130) + (remainder * self.price)
         
         # Check for discount needed to item B - 2B for 45
         if self.name == 'B':
-            return -1
+            num_pairs =  self.count // 2
+            remainder = self.count % 2
+            return (num_pairs * 45) + (remainder * self.price)
         
         return self.count*self.price
-
