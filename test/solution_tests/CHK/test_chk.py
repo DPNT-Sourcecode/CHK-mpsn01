@@ -52,30 +52,39 @@ class TestCheckoutClass():
         
         # Test case 2 - A
         checkout = checkout_solution.Checkout()
+        assert checkout.total() == 50
         
         # Test case 3 - B
         checkout = checkout_solution.Checkout()
+        assert checkout.total() == 30
         
         # Test case 4 - C
         checkout = checkout_solution.Checkout()
+        assert checkout.total() == 20
         
         # Test case 5 - D
         checkout = checkout_solution.Checkout()
+        assert checkout.total() == 15
         
         # Test case 3 - AAAB
         checkout = checkout_solution.Checkout()
+        assert checkout.total() == 190
         
         # Test case 3 - AAABB
         checkout = checkout_solution.Checkout()
+        assert checkout.total() == 175
         
         # Test case 4 - AABBB
         checkout = checkout_solution.Checkout()
+        assert checkout.total() == 145
         
         # Test case 5 - ABCD
         checkout = checkout_solution.Checkout()
+        assert checkout.total() == 115
         
         # Test case 6 - AAABBAAABBCD
         checkout = checkout_solution.Checkout()
+        assert checkout.total() == 385
     
 class TestItemClass():
     def test_init(self):
@@ -184,5 +193,6 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+
 
 
