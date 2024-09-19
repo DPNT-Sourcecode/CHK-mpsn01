@@ -41,11 +41,10 @@ class Item:
     def __init__(self, price: int):
         self.count = 0
         self.price = price
+        
     def add_one(self):
         pass
     def remove_one(self):
         pass
     def total(self) -> int:
         pass
-
-

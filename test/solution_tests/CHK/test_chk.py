@@ -30,7 +30,6 @@ class TestRunCheckout():
 class TestCheckoutClass():
     def test_init(self):
         skus = "AAA"
-        items = {'A':50, 'B':30, 'C':20, 'D':15}
         checkout = checkout_solution.Checkout(skus)
         
         assert items == checkout.items
@@ -66,5 +65,3 @@ class TestItemClass():
         pass
     def test_total(self):
         pass
-
-
