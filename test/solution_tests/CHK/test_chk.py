@@ -24,3 +24,13 @@ class TestRunCheckout():
         assert isinstance (result, int)
         assert result == -1
         
+    def test_checkout_prices(self):
+        pass
+        
+class TestCheckoutClass():
+    def test_init(self):
+        pass
+    
+class TestItemClass():
+    def test_init(self):
+        pass
