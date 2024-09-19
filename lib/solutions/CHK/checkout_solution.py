@@ -59,6 +59,8 @@ class Checkout:
             return 0
         
         num_discounts_available = self.receipt['E'].count // 2
+        if num_discounts_available < 1:
+            return 0 
          
         return self.receipt['E'].count // num_discounts_available
             
@@ -98,6 +100,7 @@ class Item:
             return (num_pairs * 45) + (remainder * self.price)
         
         return self.count*self.price
+
 
 
 
