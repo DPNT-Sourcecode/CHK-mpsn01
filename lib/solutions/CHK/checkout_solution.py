@@ -3,6 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus) -> int:
+    result = 0
     valid = ['A', 'B', 'C', 'D']
     
     # check for no items added
@@ -15,5 +16,6 @@ def checkout(skus) -> int:
         if char not in valid:
             return -1 
     
-    return -1
+    return result
+
 
