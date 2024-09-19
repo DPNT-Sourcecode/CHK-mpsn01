@@ -85,5 +85,3 @@ class Item:
             return (num_pairs * 45) + (remainder * self.price)
         
         return self.count*self.price
-
-
