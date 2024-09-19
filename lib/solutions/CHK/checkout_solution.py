@@ -52,17 +52,17 @@ class Checkout:
         if len(self.receipt) == 0:
             return 0
         
-        if 'E' not in self.receipt:
+        if 'E' not in self.receipt or 'B' not in self.receipt:
             return 0 
         
-        if 'B' not in self.receipt:
-            return 0
+        num_e_items = self.receipt['E'].count
+        num_b_items = self.receipt['B'].count
+        num_discounts_available = num_e_items // 2
         
-        num_discounts_available = self.receipt['E'].count // 2
         if num_discounts_available < 1:
             return 0 
          
-        return self.receipt['E'].count // num_discounts_available
+        return min(num_discounts_available, num_b_items)
             
     def total(self) -> int:
         sum = 0
@@ -100,7 +100,3 @@ class Item:
             return (num_pairs * 45) + (remainder * self.price)
         
         return self.count*self.price
-
-
-
-
