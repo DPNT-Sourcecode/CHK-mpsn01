@@ -30,7 +30,19 @@ class TestRunCheckout():
 class TestCheckoutClass():
     def test_init(self):
         pass
+    def test_add_item(self):
+        pass
+    def test_remove_item(self):
+        pass
+    def test_total(self):
+        pass
     
 class TestItemClass():
     def test_init(self):
+        pass
+    def test_add_one(self):
+        pass
+    def test_remove_one(self):
+        pass
+    def test_total(self):
         pass
