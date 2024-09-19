@@ -49,6 +49,15 @@ class Checkout:
             del self.receipt[name] # Remove if count reaches
             
     def get_multi_item_discount(self) -> int:
+        if len(self.receipt) == 0:
+            return 0
+        
+        if 'E' not in self.receipt:
+            return 0 
+        
+        if 'B' not in self.receipt:
+            return 0
+         
         return 0
             
     def total(self) -> int:
@@ -87,4 +96,5 @@ class Item:
             return (num_pairs * 45) + (remainder * self.price)
         
         return self.count*self.price
+
 
