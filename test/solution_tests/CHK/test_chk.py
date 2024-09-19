@@ -86,62 +86,67 @@ class TestItemClass():
     def test_total(self):
         # Test case 1 - AA
         item = checkout_solution.Item('A', 50)
-        item.add_one()
-        item.add_one()
-        assert item.total == 100
+        for _ in range(2):
+            item.add_one()
+
+        assert item.total() == 100
         
         # Test case 2 - AAA
         item = checkout_solution.Item('A', 50)
-        item.add_one()
-        item.add_one()
-        item.add_one()
-        assert item.total == 130
+        for _ in range(3):
+            item.add_one()
+
+        assert item.total() == 130
         
         # Test case 3 - AAAA
         item = checkout_solution.Item('A', 50)
-        item.add_one()
-        item.add_one()
-        item.add_one()
-        item.add_one()
-        assert item.total == 180
+        for _ in range(4):
+            item.add_one()
+
+        assert item.total() == 180
         
         # Test case 4 - AAAAAA
         item = checkout_solution.Item('A', 50)
-        item.add_one()
-        item.add_one()
-        item.add_one()
-        item.add_one()
-        item.add_one()
-        item.add_one()
-        assert item.total == 260
+        for _ in range(5):
+            item.add_one()
+
+        assert item.total() == 260
         
         # Test case 5 - B
         item = checkout_solution.Item('B', 30)
-        item.add_one()
+        for _ in range(3):
+            item.add_one()
+
+        assert item.total() == 30
         
         # Test case 6 - BB
         item = checkout_solution.Item('B', 30)
-        item.add_one()
-        item.add_one()
+        for _ in range(2):
+            item.add_one()
+
+        assert item.total() == 45
         
         # Test case 7 - BBB
         item = checkout_solution.Item('B', 30)
-        item.add_one()
-        item.add_one()
-        item.add_one()
+        for _ in range(3):
+            item.add_one()
+
+        assert item.total() == 75
         
         # Test case 8 - BBBB
         item = checkout_solution.Item('B', 30)
-        item.add_one()
-        item.add_one()
-        item.add_one()
-        item.add_one()
+        for _ in range(4):
+            item.add_one()
+
+        assert item.total() == 90
         
         # Test case 9 - C
         item = checkout_solution.Item('C', 20)
         item.add_one()
+        assert item.total() == 20
         
         # Test case 10 - no items
         item = checkout_solution.Item('C', 20)
         assert item.total == 0
         
+
