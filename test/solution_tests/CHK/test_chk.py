@@ -78,12 +78,17 @@ class TestRunCheckout():
         assert checkout_solution.checkout(skus) == 80
         
         # Test case 13
+        skus = "EEBB"
+        assert checkout_solution.checkout(skus) == 95
+        
+        # Test case 13
+        skus = "EEEBBB"
+        assert checkout_solution.checkout(skus) == 95
+        
+        # Test case 14
         skus = "EEEEBB"
         assert checkout_solution.checkout(skus) == 160
         
-        # Test case 14
-        skus = "EEBB"
-        assert checkout_solution.checkout(skus) == 95
         
 class TestCheckoutClass():
     def test_init(self):
@@ -280,3 +285,4 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+
