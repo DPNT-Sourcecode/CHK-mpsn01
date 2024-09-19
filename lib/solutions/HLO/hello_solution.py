@@ -5,4 +5,3 @@
 def hello(friend_name) -> str:
     msg = "Hello, World!"
     return msg
-
