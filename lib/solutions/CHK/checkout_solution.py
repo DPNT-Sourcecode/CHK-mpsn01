@@ -56,7 +56,7 @@ class Checkout:
         for item in self.receipt.values():
             sum = sum + item.total()
             
-        return sum - self.multi_item_discount()
+        return sum - self.get_multi_item_discount()
 
 # Class is used to represent an item, how much it costs
 # and how many have been selected
@@ -87,3 +87,4 @@ class Item:
             return (num_pairs * 45) + (remainder * self.price)
         
         return self.count*self.price
+

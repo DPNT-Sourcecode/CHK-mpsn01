@@ -23,7 +23,7 @@ class TestRunCheckout():
         result = checkout_solution.checkout("A DD")
         assert isinstance (result, int)
         assert result == -1
-        
+                
     def test_checkout_prices(self):
         # Test case 1
         skus = ""
@@ -111,6 +111,41 @@ class TestCheckoutClass():
         checkout.add_item('A')
         checkout.remove_item('A')
         assert 'A' not in checkout.receipt
+        
+    def test_get_multi_item_discount(self):
+        # Test case 1 - empty receipt
+        checkout = checkout_solution.Checkout()
+        assert checkout.get_multi_item_discount() == 0
+        
+        # Test case 2 - no multi item discount
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('E')
+        checkout.add_item('B')
+        assert checkout.get_multi_item_discount() == 0
+        
+        # Test case 3 - single multi item discount
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('E')
+        checkout.add_item('E')
+        checkout.add_item('B')
+        assert checkout.get_multi_item_discount() == 30
+        
+        # Test case 4 - double multi item discount
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('E')
+        checkout.add_item('E')
+        checkout.add_item('B')
+        checkout.add_item('B')
+        assert checkout.get_multi_item_discount() == 60
+        
+        # Test case 5 - still double multi item discount
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('E')
+        checkout.add_item('E')
+        checkout.add_item('E')
+        checkout.add_item('B')
+        checkout.add_item('B')
+        assert checkout.get_multi_item_discount() == 60
         
     def test_total(self):
         # Test case 1 - Empty
@@ -289,5 +324,6 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+
 
 
