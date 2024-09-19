@@ -7,6 +7,9 @@ def checkout(skus) -> int:
     if skus == "":
         return 0
     
+    # Initialise a class to represent the checkout
+    checkout = Checkout()
+    
     # loop through SKUS, return -1 if any characters not valid
     valid = ['A', 'B', 'C', 'D']
     for char in skus:
@@ -14,9 +17,8 @@ def checkout(skus) -> int:
         if char not in valid:
             return -1
         
-    # Initialise a class to represent the checkout
-    checkout = Checkout() 
-    
+        # TODO: Call checkout.add_item() for each char
+        
     return checkout.total()
 
 # Class is used to represent the checkout
@@ -26,7 +28,12 @@ class Checkout:
         self.receipt = {}
         
     def add_item(self, name: str):
-        pass
+        if name not in self.receipt:
+            # Intialise a new item in the receipt
+            self.receipt[name] = Item(name, self.items[name])
+        
+        self.receipt[name].add_one()
+        
     def remove_item(self, name: str):
         pass
     def total(self) -> int:
@@ -61,3 +68,4 @@ class Item:
             return (num_pairs * 45) + (remainder * self.price)
         
         return self.count*self.price
+

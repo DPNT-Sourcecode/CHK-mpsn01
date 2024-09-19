@@ -40,7 +40,11 @@ class TestCheckoutClass():
         assert 'A' in checkout.receipt
 
     def test_remove_item(self):
-        pass
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('A')
+        checkout.remove_item('A')
+        assert 'A' not in checkout.receipt
+        
     def test_total(self):
         pass
     
@@ -151,3 +155,4 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+
