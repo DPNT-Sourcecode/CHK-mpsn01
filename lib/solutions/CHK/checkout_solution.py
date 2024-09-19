@@ -48,4 +48,5 @@ class Item:
             self.count -= 1
         
     def total(self) -> int:
+        
         pass

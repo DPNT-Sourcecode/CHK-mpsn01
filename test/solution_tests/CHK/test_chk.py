@@ -84,4 +84,12 @@ class TestItemClass():
         assert item.count == 0
         
     def test_total(self):
+        # Test case 1 - AA
+        
+        # Test case 2 - AAA
+        
+        # Test case 3 - AAAA
+        
+        # Test case 4 - AAAAAA
+        
         pass
