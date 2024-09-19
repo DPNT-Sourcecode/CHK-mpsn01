@@ -6,3 +6,5 @@ class TestCheckout():
         # Test case 1 - empty string
         result = checkout_solution.checkout("")
         assert isinstance (result, int)
+        assert result == 0
+        
