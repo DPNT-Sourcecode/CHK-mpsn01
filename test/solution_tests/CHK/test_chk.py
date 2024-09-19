@@ -146,7 +146,7 @@ class TestItemClass():
         assert item.total() == 20
         
         # Test case 10 - no items
-        item = checkout_solution.Item('C', 20)
+        item = checkout_solution.Item('A', 20)
         assert item.total == 0
         
 
