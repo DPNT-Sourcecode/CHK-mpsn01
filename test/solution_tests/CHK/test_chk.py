@@ -46,7 +46,36 @@ class TestCheckoutClass():
         assert 'A' not in checkout.receipt
         
     def test_total(self):
-        pass
+        # Test case 1 - Empty
+        checkout = checkout_solution.Checkout()
+        assert checkout.total() == 0
+        
+        # Test case 2 - A
+        checkout = checkout_solution.Checkout()
+        
+        # Test case 3 - B
+        checkout = checkout_solution.Checkout()
+        
+        # Test case 4 - C
+        checkout = checkout_solution.Checkout()
+        
+        # Test case 5 - D
+        checkout = checkout_solution.Checkout()
+        
+        # Test case 3 - AAAB
+        checkout = checkout_solution.Checkout()
+        
+        # Test case 3 - AAABB
+        checkout = checkout_solution.Checkout()
+        
+        # Test case 4 - AABBB
+        checkout = checkout_solution.Checkout()
+        
+        # Test case 5 - ABCD
+        checkout = checkout_solution.Checkout()
+        
+        # Test case 6 - AAABBAAABBCD
+        checkout = checkout_solution.Checkout()
     
 class TestItemClass():
     def test_init(self):
@@ -155,4 +184,5 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+
 
