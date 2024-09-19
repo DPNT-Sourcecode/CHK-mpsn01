@@ -130,16 +130,28 @@ class TestCheckoutClass():
         checkout.add_item('B')
         assert checkout.get_multi_item_discount() == 30
         
-        # Test case 4 - double multi item discount
+        # Test case 4 - still single multi item discount
         checkout = checkout_solution.Checkout()
+        checkout.add_item('E')
+        checkout.add_item('E')
+        checkout.add_item('B')
+        checkout.add_item('B')
+        assert checkout.get_multi_item_discount() == 30
+        
+        # Test case 5 - double multi item discount
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('E')
+        checkout.add_item('E')
         checkout.add_item('E')
         checkout.add_item('E')
         checkout.add_item('B')
         checkout.add_item('B')
         assert checkout.get_multi_item_discount() == 60
         
-        # Test case 5 - still double multi item discount
+        # Test case 6 - still double multi item discount
         checkout = checkout_solution.Checkout()
+        checkout.add_item('E')
+        checkout.add_item('E')
         checkout.add_item('E')
         checkout.add_item('E')
         checkout.add_item('E')
@@ -147,7 +159,7 @@ class TestCheckoutClass():
         checkout.add_item('B')
         assert checkout.get_multi_item_discount() == 60
         
-        # Test case 6 - no Bs present to discount
+        # Test case 7 - no Bs present to discount
         checkout = checkout_solution.Checkout()
         checkout.add_item('E')
         checkout.add_item('E')
