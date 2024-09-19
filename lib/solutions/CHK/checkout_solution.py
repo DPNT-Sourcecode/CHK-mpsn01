@@ -49,8 +49,11 @@ class Checkout:
             
             
     def total(self) -> int:
-        
-        pass
+        sum = 0
+        for item in self.receipt.values():
+            sum = sum + item.total()
+            
+        return sum
 
 # Class is used to represent an item, how much it costs
 # and how many have been selected
@@ -81,6 +84,3 @@ class Item:
             return (num_pairs * 45) + (remainder * self.price)
         
         return self.count*self.price
-
-
-
