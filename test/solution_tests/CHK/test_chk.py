@@ -72,10 +72,17 @@ class TestCheckoutClass():
         
         # Test case 6 - AAAB
         checkout = checkout_solution.Checkout()
-        assert checkout.total() == 190
+        for _ in range(3):
+            checkout.add_item('A')
+        checkout.add_item('B')
+        assert checkout.total() == 160
         
         # Test case 7 - AAABB
         checkout = checkout_solution.Checkout()
+        for _ in range(3):
+            checkout.add_item('A')
+        for _ in range(2):
+            checkout.add_item('B')
         assert checkout.total() == 175
         
         # Test case 8 - AABBB
