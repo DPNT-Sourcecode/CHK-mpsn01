@@ -10,6 +10,8 @@ def checkout(skus) -> int:
     if skus == "":
         return 0
     
+    # TODO: Initialise a class to represent the checkout
+    
     # loop through SKUS, return -1 if any characters not valid
     for char in skus:
         # check char is valid

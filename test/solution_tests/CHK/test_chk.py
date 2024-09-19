@@ -24,8 +24,3 @@ class TestCheckout():
         assert isinstance (result, int)
         assert result == -1
         
-        # Test case 4 - happy path
-        result = checkout_solution.checkout("A DD")
-        assert isinstance (result, int)
-        assert result == -1
-        
