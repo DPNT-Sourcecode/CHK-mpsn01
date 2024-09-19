@@ -48,13 +48,15 @@ class Checkout:
         if self.receipt[name].count == 0:
             del self.receipt[name] # Remove if count reaches
             
+    def get_multi_item_discount(self) -> int:
+        return 0
+            
     def total(self) -> int:
-        # TODO: Add comparison for cross-item discounts
         sum = 0
         for item in self.receipt.values():
             sum = sum + item.total()
             
-        return sum
+        return sum - self.multi_item_discount()
 
 # Class is used to represent an item, how much it costs
 # and how many have been selected
