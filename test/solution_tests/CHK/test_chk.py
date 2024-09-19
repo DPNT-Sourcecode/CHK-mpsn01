@@ -7,4 +7,25 @@ class TestCheckout():
         result = checkout_solution.checkout("")
         assert isinstance (result, int)
         assert result == 0
+    
+    def test_checkout_invalid_skus(self):
+        # Test case 1 - f included
+        result = checkout_solution.checkout("ADFDE")
+        assert isinstance (result, int)
+        assert result == -1
+        
+        # Test case 2 - comma included
+        result = checkout_solution.checkout("ADD,")
+        assert isinstance (result, int)
+        assert result == -1
+        
+        # Test case 3 - space included
+        result = checkout_solution.checkout("A DD")
+        assert isinstance (result, int)
+        assert result == -1
+        
+        # Test case 4 - happy path
+        result = checkout_solution.checkout("A DD")
+        assert isinstance (result, int)
+        assert result == -1
         
