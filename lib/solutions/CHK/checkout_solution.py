@@ -48,5 +48,12 @@ class Item:
             self.count -= 1
         
     def total(self) -> int:
+        # Check for discount needed to item A
+        if self.name == 'A':
+            return -1
         
-        pass
+        # Check for discount needed to item B
+        if self.name == 'B':
+            return -1
+        
+        return self.count*self.price
