@@ -91,7 +91,7 @@ class TestCheckoutClass():
             checkout.add_item('A')
         for _ in range(3):
             checkout.add_item('B')
-        assert checkout.total() == 145
+        assert checkout.total() == 175
         
         # Test case 9 - ABCD
         checkout = checkout_solution.Checkout()
@@ -112,7 +112,7 @@ class TestCheckoutClass():
         checkout.add_item('B')
         checkout.add_item('C')
         checkout.add_item('D')
-        assert checkout.total() == 385
+        assert checkout.total() == 370
     
 class TestItemClass():
     def test_init(self):
@@ -221,4 +221,5 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+
 

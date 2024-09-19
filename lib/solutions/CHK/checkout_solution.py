@@ -22,7 +22,8 @@ def checkout(skus) -> int:
         if char not in valid:
             return -1
         
-        # TODO: Call checkout.add_item() for each char
+        # Call checkout.add_item() for each char
+        checkout.add_item(char)
         
     return checkout.total()
 
