@@ -61,7 +61,7 @@ class Checkout:
         
         if num_discounts_available < 1:
             return 0 
-         
+                 
         return min(num_discounts_available, num_b_items)*self.items['B']
             
     def total(self) -> int:
@@ -100,3 +100,4 @@ class Item:
             return (num_pairs * 45) + (remainder * self.price)
         
         return self.count*self.price
+

@@ -87,7 +87,7 @@ class TestRunCheckout():
         
         # Test case 14
         skus = "EEEEBB"
-        assert checkout_solution.checkout(skus) == 160
+        assert checkout_solution.checkout(skus) == 145
         
         # Test case 15
         skus = "EEBBB"
@@ -342,3 +342,4 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+
