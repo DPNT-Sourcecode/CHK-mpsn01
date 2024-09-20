@@ -89,9 +89,23 @@ class Item:
     def total(self) -> int:
         # Check for discount needed to item A - 3A for 130 
         if self.name == 'A':
-            num_triplets = self.count // 3
-            remainder = self.count % 3
-            return (num_triplets * 130) + (remainder * self.price)
+            total = 0
+            num_items = self.count
+            
+            # see how many sets of five there are
+            num_quintuplets = num_items // 5
+            num_items_remainder = num_items % 5
+            total += num_quintuplets * 200 
+            
+            # now see how many sets of three
+            num_triplets = num_items_remainder // 3
+            remainder = num_items_remainder % 3
+            total += num_triplets * 130
+            
+            # and the remainder
+            total += remainder * self.price
+            
+            return total
         
         # Check for discount needed to item B - 2B for 45
         if self.name == 'B':
