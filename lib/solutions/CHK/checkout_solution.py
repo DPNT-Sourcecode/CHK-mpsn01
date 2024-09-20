@@ -52,12 +52,15 @@ class Checkout:
         if len(self.receipt) == 0:
             return 0
         
-        if 'E' not in self.receipt or 'B' not in self.receipt:
-            return 0 
+        num_e_items = 0
+        num_b_items = 0
         
-        num_e_items = self.receipt['E'].count
-        num_b_items = self.receipt['B'].count
+        if 'E' in self.receipt:
+             num_e_items = self.receipt['E'].count
         
+        if 'B' in self.receipt:
+            num_b_items = self.receipt['B'].count
+                
         # Apply 2E free B discount first    
         num_discounts_available = num_e_items // 2
         free_b_items = min(num_discounts_available, num_b_items)
@@ -114,3 +117,4 @@ class Item:
             return total
         
         return self.count*self.price
+
