@@ -67,7 +67,7 @@ class TestRunCheckout():
         
         # Test case 10
         skus = "AAABBAAABCDE"
-        assert checkout_solution.checkout(skus) == 410
+        assert checkout_solution.checkout(skus) == 400
         
         # Test case 11
         skus = "EB"
@@ -257,7 +257,7 @@ class TestCheckoutClass():
         checkout.add_item('C')
         checkout.add_item('D')
         checkout.add_item('E')
-        assert checkout.total() == 410
+        assert checkout.total() == 400
         
         # Test case 11 - AAAAA
         for _ in range(5):
@@ -397,6 +397,3 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
-
-
-
