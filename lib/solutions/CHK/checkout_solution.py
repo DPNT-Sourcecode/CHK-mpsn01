@@ -68,7 +68,7 @@ class Checkout:
         discount_e_pair = self.items['B']
         
         # check for free b discount
-        num_e_pairs = num_e_items // 2
+        num_e_pairs = min(num_e_items // 2, num_b_items)
         num_b_items -= num_e_pairs
         discount += num_e_pairs * discount_e_pair
         
@@ -125,3 +125,4 @@ class Item:
             return total
         
         return self.count*self.price
+
