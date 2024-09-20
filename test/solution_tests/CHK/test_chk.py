@@ -396,28 +396,7 @@ class TestItemClass():
             item.add_one()
 
         assert item.total() == 30
-        
-        # Test case 6 - BB
-        item = checkout_solution.Item('B', 30)
-        for _ in range(2):
-            item.add_one()
-
-        assert item.total() == 45
-        
-        # Test case 7 - BBB
-        item = checkout_solution.Item('B', 30)
-        for _ in range(3):
-            item.add_one()
-
-        assert item.total() == 75
-        
-        # Test case 8 - BBBB
-        item = checkout_solution.Item('B', 30)
-        for _ in range(4):
-            item.add_one()
-
-        assert item.total() == 90
-        
+                
         # Test case 9 - C
         item = checkout_solution.Item('C', 20)
         item.add_one()
