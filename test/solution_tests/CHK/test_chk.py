@@ -267,9 +267,21 @@ class TestCheckoutClass():
         
         # Test case 12 - AAAAAAAA
         checkout = checkout_solution.Checkout()
-        for _ in range(10):
+        for _ in range(8):
             checkout.add_item('A')
         assert checkout.total() == 330
+        
+        # Test case 12 - AAAAAAAA
+        checkout = checkout_solution.Checkout()
+        for _ in range(10):
+            checkout.add_item('A')
+        assert checkout.total() == 400
+        
+        # Test case 12 - AAAAAAAA
+        checkout = checkout_solution.Checkout()
+        for _ in range(11):
+            checkout.add_item('A')
+        assert checkout.total() == 450
     
 class TestItemClass():
     def test_init(self):
@@ -399,3 +411,4 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+
