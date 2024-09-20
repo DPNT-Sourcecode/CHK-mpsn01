@@ -79,19 +79,23 @@ class TestRunCheckout():
         
         # Test case 13
         skus = "EEBB"
-        assert checkout_solution.checkout(skus) == 95
-        
-        # Test case 13
-        skus = "EEEBBB"
-        assert checkout_solution.checkout(skus) == 165
+        assert checkout_solution.checkout(skus) == 80
         
         # Test case 14
-        skus = "EEEEBB"
-        assert checkout_solution.checkout(skus) == 145
+        skus = "EEEEB"
+        assert checkout_solution.checkout(skus) == 160
         
         # Test case 15
+        skus = "EEEEBB"
+        assert checkout_solution.checkout(skus) == 160
+        
+        # Test case 16
         skus = "EEBBB"
         assert checkout_solution.checkout(skus) == 125
+        
+        # Test case 17
+        skus = "EEBB"
+        assert checkout_solution.checkout(skus) == 110
         
         
 class TestCheckoutClass():
