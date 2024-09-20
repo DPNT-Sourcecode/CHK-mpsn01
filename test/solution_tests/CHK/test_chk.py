@@ -355,7 +355,7 @@ class TestItemClass():
         
         # Test case 5 - 14 x A
         item = checkout_solution.Item('A', 50)
-        for _ in range(11):
+        for _ in range(14):
             item.add_one()
 
         assert item.total() == 580
@@ -397,5 +397,6 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+
 
 
