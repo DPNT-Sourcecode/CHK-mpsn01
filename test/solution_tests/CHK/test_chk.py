@@ -260,11 +260,13 @@ class TestCheckoutClass():
         assert checkout.total() == 400
         
         # Test case 11 - AAAAA
+        checkout = checkout_solution.Checkout()
         for _ in range(5):
             checkout.add_item('A')
         assert checkout.total() == 200
         
         # Test case 12 - AAAAAAAA
+        checkout = checkout_solution.Checkout()
         for _ in range(10):
             checkout.add_item('A')
         assert checkout.total() == 330
