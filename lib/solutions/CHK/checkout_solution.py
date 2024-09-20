@@ -107,10 +107,4 @@ class Item:
             
             return total
         
-        # Check for discount needed to item B - 2B for 45
-        if self.name == 'B':
-            num_pairs =  self.count // 2
-            remainder = self.count % 2
-            return (num_pairs * 45) + (remainder * self.price)
-        
         return self.count*self.price
