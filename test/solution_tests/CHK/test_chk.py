@@ -97,6 +97,26 @@ class TestRunCheckout():
         skus = "EEBB"
         assert checkout_solution.checkout(skus) == 110
         
+        # Test case 18
+        skus = "AAA"
+        assert checkout_solution.checkout(skus) == 130
+        
+        # Test case 19
+        skus = "AAAAA"
+        assert checkout_solution.checkout(skus) == 200
+        
+        # Test case 20
+        skus = "AAAAAA"
+        assert checkout_solution.checkout(skus) == 250
+        
+        # Test case 21
+        skus = "AAAAAAAA"
+        assert checkout_solution.checkout(skus) == 330
+        
+        # Test case 22
+        skus = "AAAAAAAAAA"
+        assert checkout_solution.checkout(skus) == 300
+        
         
 class TestCheckoutClass():
     def test_init(self):
@@ -346,3 +366,4 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+
