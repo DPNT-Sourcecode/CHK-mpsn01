@@ -49,6 +49,8 @@ class Checkout:
             del self.receipt[name] # Remove if count reaches
             
     def get_multi_item_discount(self) -> int:
+        discount = 0
+        
         if len(self.receipt) == 0:
             return 0
         
@@ -61,16 +63,22 @@ class Checkout:
         if 'B' in self.receipt:
             num_b_items = self.receipt['B'].count
                 
-        # Apply 2E free B discount first    
-        num_discounts_available = num_e_items // 2
-        free_b_items = min(num_discounts_available, num_b_items)
-        discount = free_b_items *self.items['B']
+        # discount values
+        discount_b_pair = 15
+        discount_e_pair = self.items['B']
         
-        # Calculate discount on remaining B items
-        remaining_b_items = num_b_items - free_b_items
-        num_b_discount_pairs =  remaining_b_items // 2
-        discount += num_b_discount_pairs * 15
-                         
+        # check for free b discount
+        num_e_pairs = num_e_items // 2
+        num_b_items -= num_e_pairs
+        discount += num_e_pairs * discount_e_pair
+        
+        if num_b_items < 0:
+            num_b_items = 0
+            
+        # apply remaining 2B for 45 discount
+        num_b_pairs = num_b_items // 2
+        discount += num_b_pairs * discount_b_pair
+        
         return discount
             
     def total(self) -> int:
