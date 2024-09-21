@@ -141,6 +141,9 @@ class Item:
     
     # used to apply buy x number of items get one free discounts
     def apply_get_one_free(self, name: str):
+        # store items eligible for a get one free offer and the number
+        # required to get a free item.
+        
         total = 0
         num_items = self.count 
             
@@ -163,3 +166,4 @@ class Item:
         
         total = self.count*self.price
         return total
+
