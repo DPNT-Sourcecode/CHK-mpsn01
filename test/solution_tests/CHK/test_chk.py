@@ -9,8 +9,8 @@ class TestRunCheckout():
         assert result == 0
     
     def test_checkout_invalid_skus(self):
-        # Test case 1 - G included
-        result = checkout_solution.checkout("ADGDE")
+        # Test case 1 - % included
+        result = checkout_solution.checkout("AD%DE")
         assert isinstance (result, int)
         assert result == -1
         

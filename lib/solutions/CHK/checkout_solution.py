@@ -2,6 +2,9 @@
 
 # noinspection PyUnusedLocal
 # skus = unicode string
+import string
+
+
 def checkout(skus) -> int:
     # check for no items added
     if skus == "":
@@ -16,7 +19,8 @@ def checkout(skus) -> int:
     # I'm just going to have it at top level to save time, but
     # it could also be in either the Checkout class or the Item 
     # class.
-    valid = ['A', 'B', 'C', 'D', 'E', 'F']
+    capital_letters = (letter for letter in string.ascii_uppercase)
+    valid = list(capital_letters)
     for char in skus:
         # check char is valid
         if char not in valid:
