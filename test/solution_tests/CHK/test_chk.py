@@ -136,11 +136,7 @@ class TestCheckoutClass():
         checkout.remove_item('A')
         assert 'A' not in checkout.receipt
         
-    def test_get_multi_item_discount(self):
-        # Test case 1 - empty receipt
-        checkout = checkout_solution.Checkout()
-        assert checkout.get_multi_item_discount() == 0
-        
+    def test_get_multi_item_discount(self):        
         # Test case 2 - no multi item discount
         checkout = checkout_solution.Checkout()
         checkout.add_item('E')
@@ -211,18 +207,22 @@ class TestCheckoutClass():
         assert checkout.get_multi_item_discount() == 30
         
     def check_for_discounts(self):
+        # Test case 1 - empty receipt
+        checkout = checkout_solution.Checkout()
+        assert checkout.check_for_discounts() == 0
+        
         # BB
         checkout = checkout_solution.Checkout()
         checkout.add_item('B')
         checkout.add_item('B')
-        assert checkout.check_for_discounts == 15
+        assert checkout.check_for_discounts() == 15
         
         # EEB
         checkout = checkout_solution.Checkout()
         checkout.add_item('E')
         checkout.add_item('E')
         checkout.add_item('B')
-        assert checkout.check_for_discounts == 30
+        assert checkout.check_for_discounts() == 30
         
         # NNNM
         checkout = checkout_solution.Checkout()
@@ -230,14 +230,14 @@ class TestCheckoutClass():
         checkout.add_item('N')
         checkout.add_item('N')
         checkout.add_item('M')
-        assert checkout.check_for_discounts == 15
+        assert checkout.check_for_discounts() == 15
         
         # QQQ
         checkout = checkout_solution.Checkout()
         checkout.add_item('Q')
         checkout.add_item('Q')
         checkout.add_item('Q')
-        assert checkout.check_for_discounts == 10
+        assert checkout.check_for_discounts() == 10
         
         # RRRQ
         checkout = checkout_solution.Checkout()
@@ -245,7 +245,7 @@ class TestCheckoutClass():
         checkout.add_item('R')
         checkout.add_item('R')
         checkout.add_item('Q')
-        assert checkout.check_for_discounts == 80
+        assert checkout.check_for_discounts() == 80
         
         
     def test_total(self):

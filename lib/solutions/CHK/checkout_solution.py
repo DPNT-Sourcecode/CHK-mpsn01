@@ -63,8 +63,11 @@ class Checkout:
         discount = 0
         offers = {'B': [[2,15], {'E':2}], 'M':{'N':3}, 'Q': [[3,10], {'R':3}]}
         
-        num_x_items = self.receipt[item_x].count        
-        num_y_items = self.receipt[item_y].count
+        num_x_items = self.receipt[item_x].count
+        
+        num_y_items = 0
+        if item_y in self.receipt:        
+            num_y_items = self.receipt[item_y].count
         
         # check for free item_x discount
         required_num_y = offers[item_x][1][item_y]
@@ -199,9 +202,3 @@ class Item:
         
         total = self.count*self.price
         return total
-
-
-
-
-
-
