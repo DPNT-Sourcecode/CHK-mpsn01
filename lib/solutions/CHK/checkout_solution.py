@@ -118,6 +118,10 @@ class Item:
     # used to apply discounts in the format 3A for 130, 5A for 200
     def apply_double_discount_offer(self, name: str):
         return -1
+    
+    # used to apply buy x number of items get one free discounts
+    def apply_get_one_free(self, name: str):
+        return -1
         
     def total(self) -> int:
         total = 0
@@ -153,6 +157,3 @@ class Item:
         
         total = self.count*self.price
         return total
-
-
-

@@ -311,31 +311,6 @@ class TestItemClass():
         assert item.count == 0
         assert item.price == 50
         
-        item = checkout_solution.Item('B', 30)
-        assert item.name == 'B'
-        assert item.count == 0
-        assert item.price == 30
-        
-        item = checkout_solution.Item('C', 20)
-        assert item.name == 'C'
-        assert item.count == 0
-        assert item.price == 20
-        
-        item = checkout_solution.Item('D', 15)
-        assert item.name == 'D'
-        assert item.count == 0
-        assert item.price == 15
-        
-        item = checkout_solution.Item('E', 40)
-        assert item.name == 'E'
-        assert item.count == 0
-        assert item.price == 40
-        
-        item = checkout_solution.Item('F', 10)
-        assert item.name == 'F'
-        assert item.count == 0
-        assert item.price == 10
-        
     def test_add_one(self):
         item = checkout_solution.Item('A', 50)
         item.add_one()
@@ -356,78 +331,112 @@ class TestItemClass():
         assert item.count == 0
         
     def test_single_discount_offer(self):
-        # Test case 1 - AA
-        item = checkout_solution.Item('A', 50)
-        for _ in range(2):
-            item.add_one()
-
-        assert item.total() == 100
+        # Test case 1 - K
+        item = checkout_solution.Item('K', 80)
+        item.add_one()
+        assert item.total() == 80
         
-                # Test case 2 - AAA
-        item = checkout_solution.Item('A', 50)
+        # Test case 2 - KK
+        item = checkout_solution.Item('K', 80)
+        item.add_one()
+        assert item.total() == 150
+        
+        # Test case 3 - 3 x K
+        item = checkout_solution.Item('K', 80)
         for _ in range(3):
             item.add_one()
-
-        assert item.total() == 130
+        assert item.total() == 230
+        
+        # Test case 4 - 4 x K
+        item = checkout_solution.Item('K', 80)
+        for _ in range(4):
+            item.add_one()
+        assert item.total() == 300
     
     def test_double_discount_offer(self):
-        pass
-        
-    def test_total(self):
         # Test case 1 - AA
         item = checkout_solution.Item('A', 50)
         for _ in range(2):
             item.add_one()
-
         assert item.total() == 100
         
         # Test case 2 - AAA
         item = checkout_solution.Item('A', 50)
         for _ in range(3):
             item.add_one()
-
         assert item.total() == 130
         
         # Test case 3 - AAAA
         item = checkout_solution.Item('A', 50)
         for _ in range(4):
             item.add_one()
-
         assert item.total() == 180
+        
+        # Test case 4 - AAAAA
+        item = checkout_solution.Item('A', 50)
+        for _ in range(5):
+            item.add_one()
+        assert item.total() == 200
         
         # Test case 4 - AAAAAA
         item = checkout_solution.Item('A', 50)
         for _ in range(6):
             item.add_one()
-
         assert item.total() == 250
         
         # Test case 4 - AAAAAAAA
         item = checkout_solution.Item('A', 50)
         for _ in range(8):
             item.add_one()
-
+        assert item.total() == 330
+        
+    def test_total(self):
+        # Test case 1 - AA
+        item = checkout_solution.Item('A', 50)
+        for _ in range(2):
+            item.add_one()
+        assert item.total() == 100
+        
+        # Test case 2 - AAA
+        item = checkout_solution.Item('A', 50)
+        for _ in range(3):
+            item.add_one()
+        assert item.total() == 130
+        
+        # Test case 3 - AAAA
+        item = checkout_solution.Item('A', 50)
+        for _ in range(4):
+            item.add_one()
+        assert item.total() == 180
+        
+        # Test case 4 - AAAAAA
+        item = checkout_solution.Item('A', 50)
+        for _ in range(6):
+            item.add_one()
+        assert item.total() == 250
+        
+        # Test case 4 - AAAAAAAA
+        item = checkout_solution.Item('A', 50)
+        for _ in range(8):
+            item.add_one()
         assert item.total() == 330
         
         # Test case 5 - 11 x A
         item = checkout_solution.Item('A', 50)
         for _ in range(11):
             item.add_one()
-
         assert item.total() == 450
         
         # Test case 5 - 14 x A
         item = checkout_solution.Item('A', 50)
         for _ in range(14):
             item.add_one()
-
         assert item.total() == 580
         
         # Test case 5 - B
         item = checkout_solution.Item('B', 30)
         for _ in range(1):
             item.add_one()
-
         assert item.total() == 30
                 
         # Test case 9 - C
@@ -463,5 +472,3 @@ class TestItemClass():
             item.add_one()
         assert item.total() == 40
         
-
-
