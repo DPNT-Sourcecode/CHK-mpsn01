@@ -112,11 +112,11 @@ class Item:
             self.count -= 1
             
     # used to apply discounts in the format 2B for 45
-    def apply_single_discount_offer(self, name: str):
+    def apply_single_discount_offer(self):
         return -1
     
     # used to apply discounts in the format 3A for 130, 5A for 200
-    def apply_double_discount_offer(self, name: str):
+    def apply_double_discount_offer(self):
         total = 0
         
         # Check for discount needed to item A - 3A for 130
@@ -140,14 +140,14 @@ class Item:
             return total
     
     # used to apply buy x number of items get one free discounts
-    def apply_get_one_free(self, name: str):
+    def apply_get_one_free(self):
         # store items eligible for a get one free offer and the number
         # required to get a free item.
         items = {'F': 3, 'U': 4}
     
         total = 0
         num_items = self.count 
-        set_size = items[name]
+        set_size = items[self.name]
             
         # see how many sets of 3 there are
         num_sets = num_items // set_size
@@ -168,5 +168,3 @@ class Item:
         
         total = self.count*self.price
         return total
-
-
