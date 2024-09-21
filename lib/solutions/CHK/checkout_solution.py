@@ -88,6 +88,9 @@ class Checkout:
         
         return discount
     
+    def get_group_discount(self):
+        pass
+    
     # check_for_discounts is used to search for cross item offers and return
     # the value of the discount to be subtracted from the final bill. 
     def check_for_discounts(self) -> int:
@@ -203,4 +206,5 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
