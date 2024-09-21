@@ -62,19 +62,10 @@ class Checkout:
         # free B, index 0 represents the discount available if 2B are purchased.
         discount = 0
         offers = {'B': [[2,15], {'E':2}], 'M':{'N':3}, 'Q': [[3,10], {'R':3}]}
-        
-        if len(self.receipt) == 0:
-            return 0
-        
-        num_e_items = 0
-        num_b_items = 0
-        
-        if 'E' in self.receipt:
-             num_e_items = self.receipt['E'].count
-        
-        if 'B' in self.receipt:
-            num_b_items = self.receipt['B'].count
-                        
+                
+        num_e_items = self.receipt['E'].count
+        num_b_items = self.receipt['B'].count
+                                
         # check for free b discount
         required_num_e = offers['B'][1]['E']
         num_e_pairs = min(num_e_items // required_num_e, num_b_items)
@@ -93,12 +84,23 @@ class Checkout:
         
         return discount
     
+    # check_for_discounts is used to search for cross item offers and return
+    # the value of the discount to be subtracted from the final bill. 
     def check_for_discounts(self) -> int:
         discount = 0
         
         if len(self.receipt) == 0:
             return 0
         
+        if 'B' in self.receipt and 'E' in self.receipt:
+            discount += self.get_multi_item_discount('B', 'E')
+            
+        if 'N' in self.receipt and 'M' in self.receipt:
+            discount += self.get_multi_item_discount('N', 'M')
+            
+        if 'Q' in self.receipt and 'R' in self.receipt:
+            discount += self.get_multi_item_discount('Q', 'R')
+         
         return discount
             
     def total(self) -> int:
@@ -197,6 +199,7 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
 
