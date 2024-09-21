@@ -232,6 +232,13 @@ class TestCheckoutClass():
         checkout.add_item('M')
         assert checkout.check_for_discounts() == 15
         
+        # NNN
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('N')
+        checkout.add_item('N')
+        checkout.add_item('N')
+        assert checkout.check_for_discounts() == 0
+        
         # NNM
         checkout = checkout_solution.Checkout()
         checkout.add_item('N')
@@ -523,5 +530,6 @@ class TestItemClass():
         # Test case 10 - no items
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
+
 
 
