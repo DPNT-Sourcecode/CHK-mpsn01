@@ -339,6 +339,7 @@ class TestItemClass():
         # Test case 2 - KK
         item = checkout_solution.Item('K', 80)
         item.add_one()
+        item.add_one()
         assert item.apply_single_discount_offer() == 150
         
         # Test case 3 - 3 x K
@@ -477,3 +478,4 @@ class TestItemClass():
         # Test case 10 - no items
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
+

@@ -162,7 +162,7 @@ class Item:
         num_items = self.count 
         set_size = items[self.name]
             
-        # see how many sets of 3 there are
+        # see how many sets there are
         num_sets = num_items // set_size
         remainder = num_items % set_size
         total = (num_sets * (set_size - 1) * self.price) + (remainder * self.price)
@@ -184,6 +184,7 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
 
