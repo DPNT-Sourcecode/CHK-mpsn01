@@ -58,10 +58,10 @@ class Checkout:
             
     def get_multi_item_discount(self) -> int:
         # define eligible items and discounts
-        # example: '[[2,15], [{'E':2}]]' index 1 represents the number of E required to get a
+        # example: '[[2,15], {'E':2}]' index 1 represents the number of E required to get a
         # free B, index 0 represents the discount available if 2B are purchased.
         discount = 0
-        offers = {'B': [[2,15], [{'E':2}]], 'M':{'N':3}, 'Q': [[3,10], {'R':3}]}
+        offers = {'B': [[2,15], {'E':2}], 'M':{'N':3}, 'Q': [[3,10], {'R':3}]}
         
         if len(self.receipt) == 0:
             return 0
@@ -92,6 +92,9 @@ class Checkout:
         discount += num_b_pairs * discount_b_pair
         
         return discount
+    
+    def check_for_discounts(self) -> int:
+        pass
             
     def total(self) -> int:
         sum = 0
@@ -189,3 +192,4 @@ class Item:
         
         total = self.count*self.price
         return total
+
