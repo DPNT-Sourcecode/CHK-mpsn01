@@ -96,6 +96,21 @@ class Checkout:
         items = [item for item in self.receipt if item.name in eligible]
         items.sort(key=lambda x: x.price, reverse=True)
         
+        names = []
+        for item in items:
+            for _ in range(item.count):
+                names.append(item.name)
+                
+        # calculate the discount for each set
+        while len(names) >= 3:
+            # grab the first three item names from the list
+            set = names[:3]
+            names[3:]
+            
+            total_price = self.items[set[0]] + self.items[set[1]] + self.items[set[0]]
+            
+            discount += total_price - 45
+            
         return discount
     
     # check_for_discounts is used to search for cross item offers and return
