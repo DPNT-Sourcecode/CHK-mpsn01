@@ -86,7 +86,8 @@ class Checkout:
             num_b_items = 0
             
         # apply remaining 2B for 45 discount
-        num_b_pairs = num_b_items // 2
+        required_num_b = offers['B'][0][0]
+        num_b_pairs = num_b_items // required_num_b
         discount_b_pair = offers['B'][0][1]
         discount += num_b_pairs * discount_b_pair
         
