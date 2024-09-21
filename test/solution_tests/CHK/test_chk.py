@@ -220,7 +220,7 @@ class TestCheckoutClass():
         checkout.add_item('S')
         checkout.add_item('X')
         checkout.add_item('X')
-        assert checkout.get_group_discount() == 0
+        assert checkout.get_group_discount() == 15
         
         # SSSXXX
         checkout = checkout_solution.Checkout()
@@ -230,14 +230,14 @@ class TestCheckoutClass():
         checkout.add_item('X')
         checkout.add_item('X')
         checkout.add_item('X')
-        assert checkout.get_group_discount() == 0    
+        assert checkout.get_group_discount() == 26    
            
         # XYZ
         checkout = checkout_solution.Checkout()
         checkout.add_item('X')
         checkout.add_item('Y')
         checkout.add_item('Z')
-        assert checkout.get_group_discount() == 0
+        assert checkout.get_group_discount() == 13
         
     def test_check_for_discounts(self):
         # Test case 1 - empty receipt
@@ -568,6 +568,7 @@ class TestItemClass():
         # Test case 10 - no items
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
+
 
 
 

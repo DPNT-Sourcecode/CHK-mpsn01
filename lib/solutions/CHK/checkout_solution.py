@@ -89,7 +89,8 @@ class Checkout:
         return discount
     
     def get_group_discount(self):
-        pass
+        discount = 0
+        return discount
     
     # check_for_discounts is used to search for cross item offers and return
     # the value of the discount to be subtracted from the final bill. 
@@ -107,6 +108,9 @@ class Checkout:
             
         if 'Q' in self.receipt:
             discount += self.get_multi_item_discount('Q', 'R')
+            
+        if 'S' or 'T' or 'X' or 'Y' or 'Z' in self.receipt:
+            discount += self.get_group_discount()
          
         return discount
             
@@ -206,5 +210,6 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
