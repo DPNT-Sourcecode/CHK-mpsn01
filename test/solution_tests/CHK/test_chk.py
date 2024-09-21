@@ -429,16 +429,16 @@ class TestItemClass():
             item.add_one()
         assert item.total() == 20
         
-        # Test case 12 - FFFFF
+        # Test case 12 - 5 x F
         item = checkout_solution.Item('F', 10)
         for _ in range(5):
             item.add_one()
-        assert item.total() == 50
+        assert item.total() == 40
         
-        # Test case 13 - FFFFFF
+        # Test case 13 - 6 x F
         item = checkout_solution.Item('F', 10)
-        for _ in range(5):
+        for _ in range(6):
             item.add_one()
-        assert item.total() == 60
+        assert item.total() == 40
         
 
