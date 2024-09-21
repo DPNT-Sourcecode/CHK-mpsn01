@@ -162,11 +162,15 @@ class Item:
         if self.name == 'A' or self.name == 'H' or self.name == 'V':
             return self.apply_double_discount_offer()
         
+        if self.name == 'K' or self.name == 'P':
+            return self.apply_single_discount_offer()
+        
         # Check for discount needed to item F - 2F get one F free
         if self.name == 'F' or self.name == 'U':
             return self.apply_get_one_free()
         
         total = self.count*self.price
         return total
+
 
 
