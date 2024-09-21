@@ -104,13 +104,12 @@ class Checkout:
         names = []
         for item in items:
             for _ in range(item.count):
-                names.append(item.name)
+                names.extend([item.name]*item.count)
       
         # calculate the discount for each set
         while len(names) >= 3:
             # grab the first three item names from the list
-            set = names[:3]
-            names[3:]
+            set = [names.pop(0), name.pop(0), names.pop(0)]
             
             total_price = self.items[set[0]] + self.items[set[1]] + self.items[set[0]]
             
