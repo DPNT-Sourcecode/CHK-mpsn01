@@ -235,6 +235,3 @@ class Item:
         
         total = self.count*self.price
         return total
-
-
-
