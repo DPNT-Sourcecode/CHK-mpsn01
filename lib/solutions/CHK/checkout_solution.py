@@ -58,7 +58,7 @@ class Checkout:
             
     def get_multi_item_discount(self) -> int:
         # define eligible items and discounts
-        offers = {'B': [[2,45], {'E':3}], 'N': [], 'Q': [3,80]}
+        offers = {'B': [[2,45], {'E':2}], 'M':{'N':3}, 'Q': [[3,80], {'R':3}]}
         
         discount = 0
         
@@ -188,4 +188,5 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
