@@ -417,3 +417,16 @@ class TestItemClass():
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
         
+        # Test case 11 - FF
+        item = checkout_solution.Item('F', 10)
+        item.add_one()
+        item.add_one()
+        assert item.total() == 20
+        
+        # Test case 11 - FFF
+        item = checkout_solution.Item('F', 10)
+        item.add_one()
+        item.add_one()
+        item.add_one()
+        assert item.total() == 20
+        
