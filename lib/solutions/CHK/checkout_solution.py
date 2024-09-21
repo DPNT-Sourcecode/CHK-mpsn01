@@ -56,7 +56,7 @@ class Checkout:
         if self.receipt[name].count == 0:
             del self.receipt[name] # Remove if count reaches
             
-    def get_multi_item_discount(self) -> int:
+    def get_multi_item_discount(self, item_x: str, item_y: str) -> int:
         # define eligible items and discounts
         # example: '[[2,15], {'E':2}]' index 1 represents the number of E required to get a
         # free B, index 0 represents the discount available if 2B are purchased.
@@ -94,14 +94,19 @@ class Checkout:
         return discount
     
     def check_for_discounts(self) -> int:
-        return -1
+        discount = 0
+        
+        if len(self.receipt) == 0:
+            return 0
+        
+        return discount
             
     def total(self) -> int:
         sum = 0
         for item in self.receipt.values():
             sum = sum + item.total()
             
-        return sum - self.get_multi_item_discount()
+        return sum - self.check_for_discounts()
 
 # Class is used to represent an item, how much it costs
 # and how many have been selected
@@ -192,5 +197,6 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
