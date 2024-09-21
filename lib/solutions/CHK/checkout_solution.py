@@ -74,14 +74,12 @@ class Checkout:
         
         if 'B' in self.receipt:
             num_b_items = self.receipt['B'].count
-                
-        # discount values
-        discount_b_pair = 15
-        discount_e_pair = self.items['B']
-        
+                        
         # check for free b discount
-        num_e_pairs = min(num_e_items // 2, num_b_items)
+        required_num_e = offers['B'][1]['E']
+        num_e_pairs = min(num_e_items // required_num_e, num_b_items)
         num_b_items -= num_e_pairs
+        discount_e_pair = self.items['B']
         discount += num_e_pairs * discount_e_pair
         
         if num_b_items < 0:
@@ -89,6 +87,7 @@ class Checkout:
             
         # apply remaining 2B for 45 discount
         num_b_pairs = num_b_items // 2
+        discount_b_pair = offers['B'][0][1]
         discount += num_b_pairs * discount_b_pair
         
         return discount
@@ -189,7 +188,3 @@ class Item:
         
         total = self.count*self.price
         return total
-
-
-
-
