@@ -9,8 +9,8 @@ class TestRunCheckout():
         assert result == 0
     
     def test_checkout_invalid_skus(self):
-        # Test case 1 - f included
-        result = checkout_solution.checkout("ADFDE")
+        # Test case 1 - G included
+        result = checkout_solution.checkout("ADGDE")
         assert isinstance (result, int)
         assert result == -1
         
@@ -425,8 +425,19 @@ class TestItemClass():
         
         # Test case 11 - FFF
         item = checkout_solution.Item('F', 10)
-        item.add_one()
-        item.add_one()
-        item.add_one()
+        for _ in range(3):
+            item.add_one()
         assert item.total() == 20
+        
+        # Test case 12 - FFFFF
+        item = checkout_solution.Item('F', 10)
+        for _ in range(5):
+            item.add_one()
+        assert item.total() == 50
+        
+        # Test case 13 - FFFFFF
+        item = checkout_solution.Item('F', 10)
+        for _ in range(5):
+            item.add_one()
+        assert item.total() == 60
         

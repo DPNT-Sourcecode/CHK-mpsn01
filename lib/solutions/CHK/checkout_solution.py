@@ -16,7 +16,7 @@ def checkout(skus) -> int:
     # I'm just going to have it at top level to save time, but
     # it could also be in either the Checkout class or the Item 
     # class.
-    valid = ['A', 'B', 'C', 'D', 'E']
+    valid = ['A', 'B', 'C', 'D', 'E', 'F']
     for char in skus:
         # check char is valid
         if char not in valid:
@@ -30,7 +30,7 @@ def checkout(skus) -> int:
 # Class is used to represent the checkout
 class Checkout:
     def __init__(self):
-        self.items = {'A':50, 'B':30, 'C':20, 'D':15, 'E': 40}
+        self.items = {'A':50, 'B':30, 'C':20, 'D':15, 'E': 40, 'F': 10}
         self.receipt = {}
         
     def add_item(self, name: str):
