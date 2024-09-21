@@ -100,7 +100,7 @@ class Checkout:
             discount += self.get_multi_item_discount('B', 'E')
             
         if 'M' in self.receipt:
-            discount += self.get_multi_item_discount('N', 'M')
+            discount += self.get_multi_item_discount('M', 'N')
             
         if 'Q' in self.receipt:
             discount += self.get_multi_item_discount('Q', 'R')
@@ -203,6 +203,7 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
 
