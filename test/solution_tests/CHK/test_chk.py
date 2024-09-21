@@ -355,6 +355,24 @@ class TestItemClass():
         item.remove_one()
         assert item.count == 0
         
+    def test_single_discount_offer(self):
+        # Test case 1 - AA
+        item = checkout_solution.Item('A', 50)
+        for _ in range(2):
+            item.add_one()
+
+        assert item.total() == 100
+        
+                # Test case 2 - AAA
+        item = checkout_solution.Item('A', 50)
+        for _ in range(3):
+            item.add_one()
+
+        assert item.total() == 130
+    
+    def test_double_discount_offer(self):
+        pass
+        
     def test_total(self):
         # Test case 1 - AA
         item = checkout_solution.Item('A', 50)
@@ -445,4 +463,5 @@ class TestItemClass():
             item.add_one()
         assert item.total() == 40
         
+
 

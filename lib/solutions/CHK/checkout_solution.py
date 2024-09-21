@@ -112,12 +112,12 @@ class Item:
             self.count -= 1
             
     # used to apply discounts in the format 2B for 45
-    def apply_single_discount(self, name: str):
-        pass
+    def apply_single_discount_offer(self, name: str):
+        return -1
     
     # used to apply discounts in the format 3A for 130, 5A for 200
     def apply_double_discount_offer(self, name: str):
-        pass
+        return -1
         
     def total(self) -> int:
         total = 0
@@ -153,5 +153,6 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
