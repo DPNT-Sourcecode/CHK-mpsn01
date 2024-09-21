@@ -113,7 +113,20 @@ class Item:
             
     # used to apply discounts in the format 2B for 45
     def apply_single_discount_offer(self):
-        return -1
+        items = {'K':[2,150],'P': [5,200]}
+        
+        total = 0
+        num_items = self.count
+        discounts = items[self.name]
+        
+        # see how many of the set exists
+        num_sets = num_items // discounts[0]
+        remainder = num_items % discounts[0]
+        total += num_sets * discounts[1]
+        
+        # and the remainder
+        total += remainder * self.price
+        return total
     
     # used to apply discounts in the format 3A for 130, 5A for 200
     def apply_double_discount_offer(self):
@@ -171,6 +184,7 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
 
