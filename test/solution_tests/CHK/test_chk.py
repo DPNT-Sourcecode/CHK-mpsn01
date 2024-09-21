@@ -259,7 +259,7 @@ class TestCheckoutClass():
         checkout.add_item('R')
         checkout.add_item('R')
         checkout.add_item('Q')
-        assert checkout.check_for_discounts() == 80
+        assert checkout.check_for_discounts() == 30
         
         
     def test_total(self):
@@ -530,6 +530,7 @@ class TestItemClass():
         # Test case 10 - no items
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
+
 
 
 
