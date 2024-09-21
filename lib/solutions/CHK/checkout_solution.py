@@ -122,17 +122,18 @@ class Item:
         
         total = 0
         num_items = self.count
+        discounts = items[self.name]
         
-        # see how many sets of five there are
-        num_quintuplets = num_items // 5
-        num_items_remainder = num_items % 5
-        total += num_quintuplets * 200 
+        # see how many of the larger set exists
+        num_larger = num_items // discounts[1][0]
+        num_larger_remainder = num_items % discounts[1][0]
+        total += num_larger * discounts[1][1]
         
-        # now see how many sets of three
-        num_triplets = num_items_remainder // 3
-        remainder = num_items_remainder % 3
-        total += num_triplets * 130
-        
+        # now see how many of the smaller set is left 
+        num_smaller = num_larger_remainder // discounts[0][0]
+        remainder = num_larger_remainder % discounts[0][0]
+        total += num_smaller * discounts[0][1]
+       
         # and the remainder
         total += remainder * self.price
         
@@ -158,7 +159,7 @@ class Item:
         total = 0
         
         # Check for discount needed to item A - 3A for 130
-        if self.name == 'A':
+        if self.name == 'A' or self.name == 'H' or self.name == 'V':
             return self.apply_double_discount_offer()
         
         # Check for discount needed to item F - 2F get one F free
@@ -167,4 +168,5 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
