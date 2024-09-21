@@ -124,4 +124,6 @@ class Item:
             
             return total
         
+        # Check for discount needed to item F - 2F get one F free
+        
         return self.count*self.price
