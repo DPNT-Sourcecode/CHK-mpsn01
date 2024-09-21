@@ -111,9 +111,9 @@ class Checkout:
             # grab the first three item names from the list
             set = [names.pop(0), names.pop(0), names.pop(0)]
             
-            total_price = self.items[set[0]] + self.items[set[1]] + self.items[set[0]]
+            total_price = self.items[set[0]] + self.items[set[1]] + self.items[set[2]]
             
-            discount += total_price - 45
+            discount += total_price
             
         return discount
     
@@ -235,4 +235,5 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
