@@ -71,19 +71,19 @@ class Checkout:
         
         # check for free item_x discount
         required_num_y = offers[item_x][1][item_y]
-        num_y_pairs = min(num_y_items // required_num_y, num_x_items)
-        num_x_items -= num_y_pairs
-        discount_y_pair = self.items[item_x]
-        discount += num_y_pairs * discount_y_pair
+        num_y_sets = min(num_y_items // required_num_y, num_x_items)
+        num_x_items -= num_y_sets
+        discount_y_set = self.items[item_x]
+        discount += num_y_sets * discount_y_set
         
         if num_x_items < 0:
             num_x_items = 0
             
         # apply remaining single item discount offer
         required_num_x = offers[item_x][0][0]
-        num_x_pairs = num_x_items // required_num_x
-        discount_x_pair = offers[item_x][0][1]
-        discount += num_x_pairs * discount_x_pair
+        num_x_sets = num_x_items // required_num_x
+        discount_x_set = offers[item_x][0][1]
+        discount += num_x_sets * discount_x_set
         
         return discount
     

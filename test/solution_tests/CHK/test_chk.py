@@ -209,20 +209,20 @@ class TestCheckoutClass():
         checkout = checkout_solution.Checkout()
         checkout.add_item('E')
         checkout.add_item('E')
-        assert checkout.check_for_discounts('B','E') == 0
+        assert checkout.check_for_discounts() == 0
         
         # BB
         checkout = checkout_solution.Checkout()
         checkout.add_item('B')
         checkout.add_item('B')
-        assert checkout.check_for_discounts('B','E') == 15
+        assert checkout.check_for_discounts() == 15
         
         # EEB
         checkout = checkout_solution.Checkout()
         checkout.add_item('E')
         checkout.add_item('E')
         checkout.add_item('B')
-        assert checkout.check_for_discounts('B','E') == 30
+        assert checkout.check_for_discounts() == 30
         
         # NNNM
         checkout = checkout_solution.Checkout()
@@ -230,14 +230,21 @@ class TestCheckoutClass():
         checkout.add_item('N')
         checkout.add_item('N')
         checkout.add_item('M')
-        assert checkout.check_for_discounts('B','E') == 15
+        assert checkout.check_for_discounts() == 15
+        
+        # NNM
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('N')
+        checkout.add_item('N')
+        checkout.add_item('M')
+        assert checkout.check_for_discounts() == 0
         
         # QQQ
         checkout = checkout_solution.Checkout()
         checkout.add_item('Q')
         checkout.add_item('Q')
         checkout.add_item('Q')
-        assert checkout.check_for_discounts('B','E') == 10
+        assert checkout.check_for_discounts() == 10
         
         # RRRQ
         checkout = checkout_solution.Checkout()
@@ -245,7 +252,7 @@ class TestCheckoutClass():
         checkout.add_item('R')
         checkout.add_item('R')
         checkout.add_item('Q')
-        assert checkout.check_for_discounts('B','E') == 80
+        assert checkout.check_for_discounts() == 80
         
         
     def test_total(self):
@@ -516,3 +523,4 @@ class TestItemClass():
         # Test case 10 - no items
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
+
