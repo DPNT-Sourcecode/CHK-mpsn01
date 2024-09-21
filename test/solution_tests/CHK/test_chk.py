@@ -119,7 +119,7 @@ class TestCheckoutClass():
         checkout = checkout_solution.Checkout()
         
         assert checkout.receipt == {}
-        assert checkout.items == {'A':50, 'B':30, 'C':20, 'D':15, 'E': 40}
+        assert checkout.items == {'A':50, 'B':30, 'C':20, 'D':15, 'E': 40, 'F': 10}
         
     def test_add_item(self):
         checkout = checkout_solution.Checkout()
@@ -323,14 +323,14 @@ class TestItemClass():
         assert item.price == 15
         
         item = checkout_solution.Item('E', 40)
-        assert item.name == 'D'
+        assert item.name == 'E'
         assert item.count == 0
-        assert item.price == 15
+        assert item.price == 40
         
         item = checkout_solution.Item('F', 10)
-        assert item.name == 'D'
+        assert item.name == 'F'
         assert item.count == 0
-        assert item.price == 15
+        assert item.price == 10
         
     def test_add_one(self):
         item = checkout_solution.Item('A', 50)
@@ -441,3 +441,4 @@ class TestItemClass():
             item.add_one()
         assert item.total() == 60
         
+
