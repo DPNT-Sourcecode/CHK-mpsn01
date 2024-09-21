@@ -62,25 +62,25 @@ class Checkout:
         # free B, index 0 represents the discount available if 2B are purchased.
         discount = 0
         offers = {'B': [[2,15], {'E':2}], 'M':{'N':3}, 'Q': [[3,10], {'R':3}]}
-                
-        num_e_items = self.receipt['E'].count
-        num_b_items = self.receipt['B'].count
-                                
-        # check for free b discount
-        required_num_e = offers['B'][1]['E']
-        num_e_pairs = min(num_e_items // required_num_e, num_b_items)
-        num_b_items -= num_e_pairs
-        discount_e_pair = self.items['B']
-        discount += num_e_pairs * discount_e_pair
         
-        if num_b_items < 0:
-            num_b_items = 0
+        num_x_items = self.receipt[item_x].count        
+        num_y_items = self.receipt[item_y].count
+        
+        # check for free item_x discount
+        required_num_y = offers[item_x][1][item_y]
+        num_y_pairs = min(num_y_items // required_num_y, num_x_items)
+        num_x_items -= num_y_pairs
+        discount_y_pair = self.items[item_x]
+        discount += num_y_pairs * discount_y_pair
+        
+        if num_x_items < 0:
+            num_x_items = 0
             
-        # apply remaining 2B for 45 discount
-        required_num_b = offers['B'][0][0]
-        num_b_pairs = num_b_items // required_num_b
-        discount_b_pair = offers['B'][0][1]
-        discount += num_b_pairs * discount_b_pair
+        # apply remaining single item discount offer
+        required_num_x = offers[item_x][0][0]
+        num_x_pairs = num_x_items // required_num_x
+        discount_x_pair = offers[item_x][0][1]
+        discount += num_x_pairs * discount_x_pair
         
         return discount
     
@@ -199,6 +199,7 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
 
