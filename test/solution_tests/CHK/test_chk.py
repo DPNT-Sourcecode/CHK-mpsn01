@@ -322,6 +322,16 @@ class TestItemClass():
         assert item.count == 0
         assert item.price == 15
         
+        item = checkout_solution.Item('E', 40)
+        assert item.name == 'D'
+        assert item.count == 0
+        assert item.price == 15
+        
+        item = checkout_solution.Item('F', 10)
+        assert item.name == 'D'
+        assert item.count == 0
+        assert item.price == 15
+        
     def test_add_one(self):
         item = checkout_solution.Item('A', 50)
         item.add_one()
