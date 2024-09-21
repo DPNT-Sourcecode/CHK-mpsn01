@@ -80,10 +80,11 @@ class Checkout:
             num_x_items = 0
             
         # apply remaining single item discount offer
-        required_num_x = offers[item_x][0][0]
-        num_x_sets = num_x_items // required_num_x
-        discount_x_set = offers[item_x][0][1]
-        discount += num_x_sets * discount_x_set
+        if item_x != 'M':
+            required_num_x = offers[item_x][0][0]
+            num_x_sets = num_x_items // required_num_x
+            discount_x_set = offers[item_x][0][1]
+            discount += num_x_sets * discount_x_set
         
         return discount
     
@@ -98,7 +99,7 @@ class Checkout:
         if 'B' in self.receipt:
             discount += self.get_multi_item_discount('B', 'E')
             
-        if 'N' in self.receipt and 'M' in self.receipt:
+        if 'M' in self.receipt:
             discount += self.get_multi_item_discount('N', 'M')
             
         if 'Q' in self.receipt:
@@ -202,4 +203,5 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
