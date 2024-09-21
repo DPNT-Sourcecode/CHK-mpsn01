@@ -143,14 +143,16 @@ class Item:
     def apply_get_one_free(self, name: str):
         # store items eligible for a get one free offer and the number
         # required to get a free item.
-        
+        items = {'F': 3, 'U': 4}
+    
         total = 0
         num_items = self.count 
+        set_size = items[name]
             
         # see how many sets of 3 there are
-        num_triplets = num_items // 3
-        remainder = num_items % 3
-        total = (num_triplets * 2 * self.price) + (remainder * self.price)
+        num_sets = num_items // set_size
+        remainder = num_items % set_size
+        total = (num_sets * (set_size - 1) * self.price) + (remainder * self.price)
         return total
         
     def total(self) -> int:
@@ -161,9 +163,10 @@ class Item:
             return self.apply_double_discount_offer('A')
         
         # Check for discount needed to item F - 2F get one F free
-        if self.name == 'F':
-            return self.apply_get_one_free('F')
+        if self.name == 'F' or self.name == 'U':
+            return self.apply_get_one_free(self.name)
         
         total = self.count*self.price
         return total
+
 

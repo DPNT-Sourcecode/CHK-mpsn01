@@ -413,6 +413,12 @@ class TestItemClass():
         for _ in range(6):
             item.add_one()
         assert item.apply_get_one_free('F') == 40
+
+        # Test case 5 - UUUU
+        item = checkout_solution.Item('U', 40)
+        for _ in range(4):
+            item.add_one()
+        assert item.apply_get_one_free('U') == 120
         
     def test_total(self):
         # Test case 1 - AA
@@ -471,5 +477,6 @@ class TestItemClass():
         # Test case 10 - no items
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
+
 
 
