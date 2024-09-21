@@ -93,9 +93,14 @@ class Checkout:
         eligible = {'S', 'T', 'X', 'Y', 'Z'}
         
         # construct and sort list with just these items in
-        items = [item for item in self.receipt if item.name in eligible]
+        items = []
+        for item in self.receipt:
+            if item.name in eligible:
+                items.append(item)
         items.sort(key=lambda x: x.price, reverse=True)
         
+        # create a flat list of item names to work with.
+        # e.g [S,S,S,X,Y,X]
         names = []
         for item in items:
             for _ in range(item.count):
@@ -231,3 +236,4 @@ class Item:
         
         total = self.count*self.price
         return total
+
