@@ -118,26 +118,22 @@ class Item:
     # used to apply discounts in the format 3A for 130, 5A for 200
     def apply_double_discount_offer(self):
         total = 0
+        num_items = self.count
         
-        # Check for discount needed to item A - 3A for 130
-        if self.name == 'A':
-            total = 0
-            num_items = self.count
-            
-            # see how many sets of five there are
-            num_quintuplets = num_items // 5
-            num_items_remainder = num_items % 5
-            total += num_quintuplets * 200 
-            
-            # now see how many sets of three
-            num_triplets = num_items_remainder // 3
-            remainder = num_items_remainder % 3
-            total += num_triplets * 130
-            
-            # and the remainder
-            total += remainder * self.price
-            
-            return total
+        # see how many sets of five there are
+        num_quintuplets = num_items // 5
+        num_items_remainder = num_items % 5
+        total += num_quintuplets * 200 
+        
+        # now see how many sets of three
+        num_triplets = num_items_remainder // 3
+        remainder = num_items_remainder % 3
+        total += num_triplets * 130
+        
+        # and the remainder
+        total += remainder * self.price
+        
+        return total
     
     # used to apply buy x number of items get one free discounts
     def apply_get_one_free(self):
@@ -160,11 +156,11 @@ class Item:
         
         # Check for discount needed to item A - 3A for 130
         if self.name == 'A':
-            return self.apply_double_discount_offer('A')
+            return self.apply_double_discount_offer()
         
         # Check for discount needed to item F - 2F get one F free
         if self.name == 'F' or self.name == 'U':
-            return self.apply_get_one_free(self.name)
+            return self.apply_get_one_free()
         
         total = self.count*self.price
         return total

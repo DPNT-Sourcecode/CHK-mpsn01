@@ -334,91 +334,91 @@ class TestItemClass():
         # Test case 1 - K
         item = checkout_solution.Item('K', 80)
         item.add_one()
-        assert item.apply_single_discount_offer('K') == 80
+        assert item.apply_single_discount_offer() == 80
         
         # Test case 2 - KK
         item = checkout_solution.Item('K', 80)
         item.add_one()
-        assert item.apply_single_discount_offer('K') == 150
+        assert item.apply_single_discount_offer() == 150
         
         # Test case 3 - 3 x K
         item = checkout_solution.Item('K', 80)
         for _ in range(3):
             item.add_one()
-        assert item.apply_single_discount_offer('K') == 230
+        assert item.apply_single_discount_offer() == 230
         
         # Test case 4 - 4 x K
         item = checkout_solution.Item('K', 80)
         for _ in range(4):
             item.add_one()
-        assert item.apply_single_discount_offer('K') == 300
+        assert item.apply_single_discount_offer() == 300
     
     def test_apply_double_discount_offer(self):
         # Test case 1 - V
         item = checkout_solution.Item('V', 50)
         item.add_one()
-        assert item.apply_get_one_free('V') == 50
+        assert item.apply_double_discount_offer() == 50
         
         # Test case 2 - VV
         item = checkout_solution.Item('V', 50)
         for _ in range(2):
             item.add_one()
-        assert item.apply_get_one_free('F') == 90
+        assert item.apply_double_discount_offer() == 90
         
         # Test case 3 - VVV
         item = checkout_solution.Item('V', 50)
         for _ in range(3):
             item.add_one()
-        assert item.apply_get_one_free('V') == 130
+        assert item.apply_double_discount_offer() == 130
         
         # Test case 4 - VVVV
         item = checkout_solution.Item('V', 50)
         for _ in range(4):
             item.add_one()
-        assert item.apply_get_one_free('V') == 180
+        assert item.apply_double_discount_offer() == 180
         
         # Test case 5 - VVVVV
         item = checkout_solution.Item('V', 50)
         for _ in range(5):
             item.add_one()
-        assert item.apply_get_one_free('V') == 220
+        assert item.apply_double_discount_offer() == 220
         
         # Test case 6 - VVVVVV
         item = checkout_solution.Item('V', 50)
         for _ in range(6):
             item.add_one()
-        assert item.apply_get_one_free('V') == 260
+        assert item.apply_double_discount_offer() == 260
         
     def test_apply_get_one_free(self):
         # Test case 1 - FF
         item = checkout_solution.Item('F', 10)
         item.add_one()
         item.add_one()
-        assert item.apply_get_one_free('F') == 20
+        assert item.apply_get_one_free() == 20
         
         # Test case 2 - FFF
         item = checkout_solution.Item('F', 10)
         for _ in range(3):
             item.add_one()
-        assert item.apply_get_one_free('F') == 20
+        assert item.apply_get_one_free() == 20
         
         # Test case 3 - 5 x F
         item = checkout_solution.Item('F', 10)
         for _ in range(5):
             item.add_one()
-        assert item.apply_get_one_free('F') == 40
+        assert item.apply_get_one_free() == 40
         
         # Test case 4 - 6 x F
         item = checkout_solution.Item('F', 10)
         for _ in range(6):
             item.add_one()
-        assert item.apply_get_one_free('F') == 40
+        assert item.apply_get_one_free() == 40
 
         # Test case 5 - UUUU
         item = checkout_solution.Item('U', 40)
         for _ in range(4):
             item.add_one()
-        assert item.apply_get_one_free('U') == 120
+        assert item.apply_get_one_free() == 120
         
     def test_total(self):
         # Test case 1 - AA
