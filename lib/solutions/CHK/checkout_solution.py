@@ -131,8 +131,10 @@ class Item:
             
             # see how many sets of 3 there are
             num_triplets = num_items // 3
-            total = num_triplets * 2 * self.price
+            remainder = num_items % 3
+            total = (num_triplets * 2 * self.price) + (remainder * self.price)
             return total
         
         total = self.count*self.price
         return total
+
