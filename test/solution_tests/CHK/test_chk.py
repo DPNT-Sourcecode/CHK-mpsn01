@@ -441,4 +441,3 @@ class TestItemClass():
             item.add_one()
         assert item.total() == 40
         
-
