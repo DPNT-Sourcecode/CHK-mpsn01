@@ -94,7 +94,7 @@ class Checkout:
         return discount
     
     def check_for_discounts(self) -> int:
-        pass
+        return -1
             
     def total(self) -> int:
         sum = 0
@@ -192,4 +192,5 @@ class Item:
         
         total = self.count*self.price
         return total
+
 

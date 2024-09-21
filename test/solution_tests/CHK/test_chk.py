@@ -210,6 +210,44 @@ class TestCheckoutClass():
         checkout.add_item('B')
         assert checkout.get_multi_item_discount() == 30
         
+    def check_for_discounts(self):
+        # BB
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('B')
+        checkout.add_item('B')
+        assert checkout.check_for_discounts == 15
+        
+        # EEB
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('E')
+        checkout.add_item('E')
+        checkout.add_item('B')
+        assert checkout.check_for_discounts == 30
+        
+        # NNNM
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('N')
+        checkout.add_item('N')
+        checkout.add_item('N')
+        checkout.add_item('M')
+        assert checkout.check_for_discounts == 15
+        
+        # QQQ
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('Q')
+        checkout.add_item('Q')
+        checkout.add_item('Q')
+        assert checkout.check_for_discounts == 10
+        
+        # RRRQ
+        checkout = checkout_solution.Checkout()
+        checkout.add_item('R')
+        checkout.add_item('R')
+        checkout.add_item('R')
+        checkout.add_item('Q')
+        assert checkout.check_for_discounts == 80
+        
+        
     def test_total(self):
         # Test case 1 - Empty
         checkout = checkout_solution.Checkout()
