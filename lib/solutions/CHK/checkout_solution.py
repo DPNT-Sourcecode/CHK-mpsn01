@@ -57,6 +57,9 @@ class Checkout:
             del self.receipt[name] # Remove if count reaches
             
     def get_multi_item_discount(self) -> int:
+        # define eligible items and discounts
+        
+        
         discount = 0
         
         if len(self.receipt) == 0:
@@ -171,14 +174,15 @@ class Item:
     def total(self) -> int:
         total = 0
         
-        # Check for discount needed to item A - 3A for 130
+        # Check for discounts with multiple offers available
         if self.name == 'A' or self.name == 'H' or self.name == 'V':
             return self.apply_double_discount_offer()
         
+        # Check for discounts with a single offer available
         if self.name == 'K' or self.name == 'P':
             return self.apply_single_discount_offer()
         
-        # Check for discount needed to item F - 2F get one F free
+        # Check for discounts with get one free offers
         if self.name == 'F' or self.name == 'U':
             return self.apply_get_one_free()
         
