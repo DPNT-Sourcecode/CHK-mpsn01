@@ -90,28 +90,31 @@ class Checkout:
     
     def get_group_discount(self):
         discount = 0
+        
         eligible = {'S', 'T', 'X', 'Y', 'Z'}
         
-        # construct and sort list with just these items in
-        items = [item for name, item in self.receipt.items() if name in eligible]
+        # create a list with just the eligible items
+        items = []
+        for name in self.receipt:
+            if name in eligible:
+                items.append(self.receipt[name])
         items.sort(key=lambda x: x.price, reverse=True)
         
-        # create a flat list of item names to work with.
-        # e.g [S,S,S,X,Y,X]
+        # create a flattened list of item names
         names = []
         for item in items:
             for _ in range(item.count):
                 names.append(item.name)
-                
+      
         # calculate the discount for each set
-        while len(names) >= 3:
+        #while len(names) >= 3:
             # grab the first three item names from the list
-            set = names[:3]
-            names[3:]
+            #set = names[:3]
+            #names[3:]
             
-            total_price = self.items[set[0]] + self.items[set[1]] + self.items[set[0]]
+            #total_price = self.items[set[0]] + self.items[set[1]] + self.items[set[0]]
             
-            discount += total_price - 45
+            #discount += total_price - 45
             
         return discount
     
@@ -233,6 +236,7 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
 
