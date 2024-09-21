@@ -90,6 +90,12 @@ class Checkout:
     
     def get_group_discount(self):
         discount = 0
+        eligible = {'S', 'T', 'X', 'Y', 'Z'}
+        
+        # construct and sort list with just these items in
+        items = [item for item in self.receipt if item.name in eligible]
+        items.sort(key=lambda x: x.price, reverse=True)
+        
         return discount
     
     # check_for_discounts is used to search for cross item offers and return
@@ -210,6 +216,7 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
 
