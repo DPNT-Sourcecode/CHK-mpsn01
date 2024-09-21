@@ -159,7 +159,7 @@ class Item:
         
         # Check for discount needed to item F - 2F get one F free
         if self.name == 'F':
-            return self.apply_single_discount_offer('F')
+            return self.apply_get_one_free('F')
         
         total = self.count*self.price
         return total
