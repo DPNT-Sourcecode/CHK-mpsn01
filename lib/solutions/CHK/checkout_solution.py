@@ -104,7 +104,7 @@ class Checkout:
         names = []
         for item in items:
             for _ in range(item.count):
-                names.extend([item.name]*item.count)
+                names.append(item.name)
       
         # calculate the discount for each set
         while len(names) >= 3:
@@ -113,7 +113,7 @@ class Checkout:
             
             total_price = self.items[set[0]] + self.items[set[1]] + self.items[set[2]]
             
-            discount += total_price
+            discount += total_price - 45
             
         return discount
     
@@ -235,5 +235,6 @@ class Item:
         
         total = self.count*self.price
         return total
+
 
 
