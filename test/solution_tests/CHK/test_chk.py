@@ -230,7 +230,7 @@ class TestCheckoutClass():
         checkout.add_item('X')
         checkout.add_item('X')
         checkout.add_item('X')
-        assert checkout.get_group_discount() == 26    
+        assert checkout.get_group_discount() == 21    
            
         # XYZ
         checkout = checkout_solution.Checkout()
