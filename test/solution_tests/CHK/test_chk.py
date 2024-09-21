@@ -390,6 +390,31 @@ class TestItemClass():
             item.add_one()
         assert item.total() == 330
         
+    def test_apply_get_one_free(self):
+        # Test case 1 - FF
+        item = checkout_solution.Item('F', 10)
+        item.add_one()
+        item.add_one()
+        assert item.total() == 20
+        
+        # Test case 2 - FFF
+        item = checkout_solution.Item('F', 10)
+        for _ in range(3):
+            item.add_one()
+        assert item.total() == 20
+        
+        # Test case 3 - 5 x F
+        item = checkout_solution.Item('F', 10)
+        for _ in range(5):
+            item.add_one()
+        assert item.total() == 40
+        
+        # Test case 4 - 6 x F
+        item = checkout_solution.Item('F', 10)
+        for _ in range(6):
+            item.add_one()
+        assert item.total() == 40
+        
     def test_total(self):
         # Test case 1 - AA
         item = checkout_solution.Item('A', 50)
@@ -447,28 +472,3 @@ class TestItemClass():
         # Test case 10 - no items
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
-        
-        # Test case 11 - FF
-        item = checkout_solution.Item('F', 10)
-        item.add_one()
-        item.add_one()
-        assert item.total() == 20
-        
-        # Test case 11 - FFF
-        item = checkout_solution.Item('F', 10)
-        for _ in range(3):
-            item.add_one()
-        assert item.total() == 20
-        
-        # Test case 12 - 5 x F
-        item = checkout_solution.Item('F', 10)
-        for _ in range(5):
-            item.add_one()
-        assert item.total() == 40
-        
-        # Test case 13 - 6 x F
-        item = checkout_solution.Item('F', 10)
-        for _ in range(6):
-            item.add_one()
-        assert item.total() == 40
-        
