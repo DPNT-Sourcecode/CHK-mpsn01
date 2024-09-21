@@ -61,7 +61,7 @@ class Checkout:
         # example: '[[2,15], {'E':2}]' index 1 represents the number of E required to get a
         # free B, index 0 represents the discount available if 2B are purchased.
         discount = 0
-        offers = {'B': [[2,15], {'E':2}], 'M':{'N':3}, 'Q': [[3,10], {'R':3}]}
+        offers = {'B': [[2,15], {'E':2}], 'M':[[0,0], {'N':3}], 'Q': [[3,10], {'R':3}]}
         
         num_x_items = self.receipt[item_x].count
         
@@ -202,3 +202,4 @@ class Item:
         
         total = self.count*self.price
         return total
+
