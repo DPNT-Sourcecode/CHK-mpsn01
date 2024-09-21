@@ -117,6 +117,9 @@ class Item:
     
     # used to apply discounts in the format 3A for 130, 5A for 200
     def apply_double_discount_offer(self):
+        # store the elible items and their discount prices and set sizes
+        items = {'A':[[3,130],[5,200]],'H':[[5,45],[10,80]],'V':[[2,90],[3,130]]}
+        
         total = 0
         num_items = self.count
         
@@ -164,3 +167,4 @@ class Item:
         
         total = self.count*self.price
         return total
+
