@@ -384,27 +384,27 @@ class TestItemClass():
         
     def test_apply_single_discount_offer(self):
         # Test case 1 - K
-        item = checkout_solution.Item('K', 80)
+        item = checkout_solution.Item('K', 70)
         item.add_one()
-        assert item.apply_single_discount_offer() == 80
+        assert item.apply_single_discount_offer() == 70
         
         # Test case 2 - KK
-        item = checkout_solution.Item('K', 80)
+        item = checkout_solution.Item('K', 70)
         item.add_one()
         item.add_one()
         assert item.apply_single_discount_offer() == 120
         
         # Test case 3 - 3 x K
-        item = checkout_solution.Item('K', 80)
+        item = checkout_solution.Item('K', 70)
         for _ in range(3):
             item.add_one()
-        assert item.apply_single_discount_offer() == 230
+        assert item.apply_single_discount_offer() == 190
         
         # Test case 4 - 4 x K
-        item = checkout_solution.Item('K', 80)
+        item = checkout_solution.Item('K', 70)
         for _ in range(4):
             item.add_one()
-        assert item.apply_single_discount_offer() == 300
+        assert item.apply_single_discount_offer() == 240
     
     def test_apply_double_discount_offer(self):
         # Test case 1 - V
@@ -530,3 +530,4 @@ class TestItemClass():
         # Test case 10 - no items
         item = checkout_solution.Item('A', 20)
         assert item.total() == 0
+
